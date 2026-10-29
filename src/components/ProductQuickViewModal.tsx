@@ -15,7 +15,8 @@ import {
   MapPin,
   Clock,
   Heart,
-  ChefHat
+  ChefHat,
+  ExternalLink
 } from 'lucide-react';
 
 export const ProductQuickViewModal: React.FC = () => {
@@ -244,13 +245,25 @@ export const ProductQuickViewModal: React.FC = () => {
 
               {/* Add to Cart & Wishlist */}
               <div className="flex gap-2.5">
-                <button
-                  onClick={handleAddToCart}
-                  className="flex-1 py-3.5 px-6 rounded-2xl bg-gradient-to-r from-terracotta-600 to-terracotta-500 hover:from-terracotta-700 hover:to-terracotta-600 text-white font-bold text-sm shadow-warm flex items-center justify-center gap-2 active:scale-95 transition-all"
-                >
-                  <ShoppingBag className="w-4 h-4" />
-                  <span>Add {quantity} to Basket • ₹{variant.price * quantity}</span>
-                </button>
+                {quickViewProduct.isExternal && quickViewProduct.externalUrl ? (
+                  <a
+                    href={quickViewProduct.externalUrl}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="flex-1 py-3.5 px-6 rounded-2xl bg-charcoal-900 hover:bg-black text-amber-300 font-bold text-sm shadow-warm flex items-center justify-center gap-2 active:scale-95 transition-all"
+                  >
+                    <span>View on Neelam's Amazon Storefront</span>
+                    <ExternalLink className="w-4 h-4 text-amber-300" />
+                  </a>
+                ) : (
+                  <button
+                    onClick={handleAddToCart}
+                    className="flex-1 py-3.5 px-6 rounded-2xl bg-gradient-to-r from-terracotta-600 to-terracotta-500 hover:from-terracotta-700 hover:to-terracotta-600 text-white font-bold text-sm shadow-warm flex items-center justify-center gap-2 active:scale-95 transition-all"
+                  >
+                    <ShoppingBag className="w-4 h-4" />
+                    <span>Add {quantity} to Basket • ₹{variant.price * quantity}</span>
+                  </button>
+                )}
 
                 <button
                   onClick={() => toggleWishlist(quickViewProduct.id)}

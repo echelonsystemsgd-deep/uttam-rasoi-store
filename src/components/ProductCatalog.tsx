@@ -5,16 +5,25 @@ import { PRODUCTS } from '../data/products';
 import { ProductCard } from './ProductCard';
 import { Sparkles, Filter, CheckCircle2 } from 'lucide-react';
 
-type CategoryFilter = 'all' | 'pure-spices' | 'signature-masalas' | 'kitchen-organization' | 'gift-bundles';
+type CategoryFilter =
+  | 'all'
+  | 'pure-spices'
+  | 'signature-masalas'
+  | 'kitchen-organization'
+  | 'teestah-label'
+  | 'amazon-appliances'
+  | 'gift-bundles';
 
 export const ProductCatalog: React.FC = () => {
   const [activeCategory, setActiveCategory] = useState<CategoryFilter>('all');
 
   const CATEGORY_TABS: { id: CategoryFilter; label: string; badge?: string }[] = [
-    { id: 'all', label: 'All Essentials' },
+    { id: 'all', label: 'All Collections' },
     { id: 'pure-spices', label: 'Pure Spices', badge: 'Stone-Ground' },
     { id: 'signature-masalas', label: 'Signature Masalas', badge: 'Neelam’s Blend' },
+    { id: 'teestah-label', label: 'Teestah Label', badge: 'Suits & Linens 🌸' },
     { id: 'kitchen-organization', label: 'Cookware & Jars', badge: 'Cast Iron & Glass' },
+    { id: 'amazon-appliances', label: 'Appliances', badge: 'Amazon Curated' },
     { id: 'gift-bundles', label: 'Gift Hampers', badge: 'Festive Box' },
   ];
 

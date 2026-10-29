@@ -6,12 +6,20 @@ export interface ProductVariant {
   inStock: boolean;
 }
 
+export type ProductCategory =
+  | 'pure-spices'
+  | 'signature-masalas'
+  | 'kitchen-organization'
+  | 'gift-bundles'
+  | 'teestah-label'
+  | 'amazon-appliances';
+
 export interface Product {
   id: string;
   name: string;
   hindiName?: string;
   tagline: string;
-  category: 'pure-spices' | 'signature-masalas' | 'kitchen-organization' | 'gift-bundles';
+  category: ProductCategory;
   categoryLabel: string;
   rating: number;
   reviewCount: number;
@@ -28,6 +36,9 @@ export interface Product {
   neelamTip: string;
   fssaiNumber: string;
   shelfLife: string;
+  isExternal?: boolean;
+  externalUrl?: string;
+  badgeText?: string;
 }
 
 export interface CartItem {

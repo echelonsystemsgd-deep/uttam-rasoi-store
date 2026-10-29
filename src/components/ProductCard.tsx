@@ -4,7 +4,7 @@ import React, { useState } from 'react';
 import { Product } from '../types';
 import { FALLBACK_IMAGE } from '../data/products';
 import { useStore } from '../context/StoreContext';
-import { Star, Heart, ShoppingBag, Plus, Minus, Eye, Check } from 'lucide-react';
+import { Star, Heart, ShoppingBag, Plus, Minus, Eye, Check, ExternalLink } from 'lucide-react';
 
 interface ProductCardProps {
   product: Product;
@@ -43,18 +43,26 @@ export const ProductCard: React.FC<ProductCardProps> = ({ product }) => {
       <div className="absolute top-3 left-3 right-3 z-10 flex items-center justify-between pointer-events-none">
         <div className="flex items-center gap-1.5 flex-wrap">
           {/* 100% Veg Green Dot Badge */}
-          {product.isVeg && (
+          {product.isVeg && !product.isExternal && product.category !== 'teestah-label' && (
             <div className="bg-white/95 backdrop-blur-md px-1.5 py-1 rounded-md border border-emerald-600 shadow-sm flex items-center gap-1">
               <div className="w-2.5 h-2.5 rounded-full bg-emerald-600" />
               <span className="text-[10px] font-bold text-emerald-800 uppercase tracking-tighter">100% Veg</span>
             </div>
           )}
 
-          {product.isBestseller && (
+          {product.badgeText ? (
+            <span className="bg-charcoal-900 text-amber-300 font-extrabold text-[10px] px-2 py-0.5 rounded-full shadow-sm uppercase tracking-wider">
+              {product.badgeText}
+            </span>
+          ) : product.isBestseller ? (
             <span className="bg-terracotta-600 text-white font-extrabold text-[10px] px-2 py-0.5 rounded-full shadow-sm uppercase tracking-wider">
               Bestseller
             </span>
-          )}
+          ) : product.isNew ? (
+            <span className="bg-forestSage-700 text-white font-extrabold text-[10px] px-2 py-0.5 rounded-full shadow-sm uppercase tracking-wider">
+              New Arrival
+            </span>
+          ) : null}
         </div>
 
         {/* Wishlist Button */}
@@ -98,21 +106,21 @@ export const ProductCard: React.FC<ProductCardProps> = ({ product }) => {
               e.stopPropagation();
               setQuickViewProduct(product);
             }}
-            className="px-4 py-2 rounded-xl bg-white/95 text-charcoal-900 font-semibold text-xs flex items-center gap-1.5 shadow-lg hover:bg-terracotta-600 hover:text-white transition-all transform translate-y-2 group-hover:translate-y-0"
+            className="px-4 py-2 rounded-full bg-white text-charcoal-900 font-bold text-xs shadow-lg hover:bg-terracotta-600 hover:text-white transition-colors flex items-center gap-1.5 transform translate-y-2 group-hover:translate-y-0 duration-200"
           >
             <Eye className="w-3.5 h-3.5" />
-            <span>Quick View & Recipe Tips</span>
+            <span>Quick View</span>
           </button>
         </div>
 
-        {/* Alternate angle indicator dots if > 1 images */}
+        {/* Multi-image indicators */}
         {product.images.length > 1 && (
-          <div className="absolute bottom-2 left-1/2 -translate-x-1/2 flex items-center gap-1 bg-white/80 backdrop-blur-xs px-2 py-0.5 rounded-full">
-            {product.images.map((_, idx) => (
+          <div className="absolute bottom-2 left-0 right-0 flex justify-center gap-1">
+            {product.images.map((_, i) => (
               <span
-                key={idx}
+                key={i}
                 className={`w-1.5 h-1.5 rounded-full transition-all ${
-                  idx === currentImageIdx ? 'bg-terracotta-600 w-3' : 'bg-charcoal-300'
+                  i === currentImageIdx ? 'bg-white w-3' : 'bg-white/50'
                 }`}
               />
             ))}
@@ -120,23 +128,23 @@ export const ProductCard: React.FC<ProductCardProps> = ({ product }) => {
         )}
       </div>
 
-      {/* Product Content */}
+      {/* Product Card Details */}
       <div className="p-4 sm:p-5 flex-1 flex flex-col justify-between space-y-3">
         
-        {/* Rating and category */}
-        <div className="flex items-center justify-between text-xs text-charcoal-500">
-          <span className="font-medium text-terracotta-700 uppercase tracking-wider text-[11px]">
-            {product.categoryLabel}
-          </span>
-          <div className="flex items-center gap-1 text-amber-500 font-bold">
-            <Star className="w-3.5 h-3.5 fill-current" />
-            <span className="text-charcoal-900">{product.rating}</span>
-            <span className="text-charcoal-400 font-normal">({product.reviewCount})</span>
-          </div>
-        </div>
-
-        {/* Product Title & Hindi Name */}
         <div>
+          {/* Category & Rating */}
+          <div className="flex items-center justify-between text-xs mb-1">
+            <span className="text-terracotta-600 font-semibold tracking-wider uppercase text-[11px]">
+              {product.categoryLabel}
+            </span>
+            <div className="flex items-center gap-1 text-amber-500 font-bold text-xs">
+              <Star className="w-3.5 h-3.5 fill-amber-400" />
+              <span>{product.rating}</span>
+              <span className="text-charcoal-400 font-normal text-[10px]">({product.reviewCount})</span>
+            </div>
+          </div>
+
+          {/* Title & Tagline */}
           <h3
             onClick={() => setQuickViewProduct(product)}
             className="font-serif font-bold text-base sm:text-lg text-charcoal-900 group-hover:text-terracotta-600 transition-colors line-clamp-1 cursor-pointer"
@@ -144,7 +152,7 @@ export const ProductCard: React.FC<ProductCardProps> = ({ product }) => {
             {product.name}
           </h3>
           {product.hindiName && (
-            <span className="text-xs font-serif text-terracotta-700/80 italic font-medium block">
+            <span className="text-xs text-amberSpice-700 font-medium block">
               {product.hindiName}
             </span>
           )}
@@ -156,7 +164,7 @@ export const ProductCard: React.FC<ProductCardProps> = ({ product }) => {
         {/* Variant / Weight Selector Pills */}
         <div className="pt-1">
           <div className="text-[11px] font-semibold text-charcoal-500 mb-1.5 flex items-center justify-between">
-            <span>Select Size / Pack:</span>
+            <span>{product.category === 'teestah-label' ? 'Select Size:' : 'Select Size / Pack:'}</span>
             <span className="text-forestSage-700 font-bold">{selectedVariant.weight}</span>
           </div>
           <div className="flex items-center gap-1.5 flex-wrap">
@@ -166,7 +174,7 @@ export const ProductCard: React.FC<ProductCardProps> = ({ product }) => {
                 onClick={() => setSelectedVariantIdx(idx)}
                 className={`px-2.5 py-1 rounded-lg text-xs font-semibold transition-all border ${
                   idx === selectedVariantIdx
-                    ? 'bg-terracotta-500 text-white border-terracotta-500 shadow-xs'
+                    ? 'bg-terracotta-600 text-white border-terracotta-600 shadow-xs'
                     : 'bg-cream-100 text-charcoal-700 border-cream-300 hover:border-terracotta-300'
                 }`}
               >
@@ -196,8 +204,19 @@ export const ProductCard: React.FC<ProductCardProps> = ({ product }) => {
             )}
           </div>
 
-          {/* Add to Cart or Stepper */}
-          {existingCartItem ? (
+          {/* Action: External Amazon link OR D2C Add to Cart */}
+          {product.isExternal && product.externalUrl ? (
+            <a
+              href={product.externalUrl}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="px-3.5 py-2 sm:px-4 sm:py-2 rounded-xl bg-charcoal-900 hover:bg-black text-amber-300 font-bold text-xs flex items-center gap-1.5 shadow-sm transition-all active:scale-95 flex-shrink-0"
+              title="Shop on Amazon Prime"
+            >
+              <span>Amazon</span>
+              <ExternalLink className="w-3.5 h-3.5 text-amber-300" />
+            </a>
+          ) : existingCartItem ? (
             <div className="flex items-center bg-cream-100 border border-terracotta-300 rounded-xl overflow-hidden shadow-xs">
               <button
                 onClick={() => updateQuantity(cartItemId, existingCartItem.quantity - 1)}

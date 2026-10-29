@@ -11,7 +11,10 @@ export const SITE_CONFIG = {
     youtube: 'https://www.youtube.com/@indianyoutuberneelamvlogs',
     instagram: 'https://www.instagram.com/indianyoutuberneelam',
     facebook: 'https://www.facebook.com/indianvloggerneelam',
+    amazonStore: 'https://www.amazon.in/shop/indianyoutuberneelam?tag=indianyoutu06-21',
   },
+  amazonAssociateTag: 'indianyoutu06-21',
+  amazonStoreUrl: 'https://www.amazon.in/shop/indianyoutuberneelam?tag=indianyoutu06-21',
   ogImage: 'https://images.unsplash.com/photo-1596040033229-a9821ebd058d?auto=format&fit=crop&w=1200&h=630&q=85',
 };
 

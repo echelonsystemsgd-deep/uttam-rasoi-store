@@ -50,6 +50,17 @@
 * **Web App Manifest (`manifest.json`):** Standalone PWA-ready mobile app capabilities.
 * **Schema.org Structured Data:** Valid JSON-LD schemas for `Store`, `Organization`, `WebSite`, and `ProductCollection` to maximize Google Search rich snippet rankings.
 
+### 7. 🌸 Teestah Label Integration (Apparel & Homemaker Linens)
+* **Creator-Led Ethnic Wear & Kitchen Textiles:** Direct-to-consumer apparel line featuring pure breathable Mulmul cotton suits (3-piece with pockets), festive Chanderi Anarkali sets, heavy slub cotton kitchen aprons, and textured dining table runners.
+* **Integrated Unified Checkout:** Homemakers can shop both their kitchen spices and daily cotton suits in a single mobile checkout drawer.
+
+### 8. 🛒 Official Amazon Influencer Storefront Integration
+* **Vlog Appliance Bridge (`amazon.in/shop/indianyoutuberneelam`):** Features the exact high-ticket appliances Neelam uses in her kitchen reset and recipe vlogs (`tag=indianyoutu06-21`):
+  * *Philips HL7756/00 750W Heavy-Duty Mixer Grinder*
+  * *Faber 3-Burner Toughened Glass Automatic Hob*
+  * *The Indus Valley Tri-Ply Pressure Cooker*
+* **Zero D2C Cannibalization:** Preserves 100% margin on consumable spices/cookware while earning creator affiliate commissions on heavy electricals.
+
 ---
 
 ## 🛠️ Tech Stack & Directory Structure

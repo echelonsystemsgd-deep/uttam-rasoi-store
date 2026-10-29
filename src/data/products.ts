@@ -267,6 +267,170 @@ export const PRODUCTS: Product[] = [
     fssaiNumber: 'Food Grade Safe Cookware Standards',
     shelfLife: 'Lifetime Durability',
   }
+,
+  {
+    id: 'teestah-mulmul-suit-set',
+    name: 'Teestah Label Pure Mulmul Cotton Daily Suit Set (3-Piece)',
+    hindiName: 'तीस्ता लेबल कॉटन सूट',
+    tagline: 'Ultra-soft breathable hand-block printed kurti, matching salwar & chiffon dupatta',
+    category: 'teestah-label',
+    categoryLabel: 'Teestah Label (Apparel)',
+    rating: 4.9,
+    reviewCount: 88,
+    isBestseller: true,
+    isVeg: true,
+    badgeText: 'Teestah Original',
+    images: [
+      'https://images.unsplash.com/photo-1610030469983-98e550d6193c?auto=format&fit=crop&w=800&q=80',
+      'https://images.unsplash.com/photo-1583391733956-3750e0ff4e8b?auto=format&fit=crop&w=800&q=80'
+    ],
+    variants: [
+      { id: 't-suit-m', weight: 'Size M (Bust 38 in)', price: 1699, originalPrice: 2499, inStock: true },
+      { id: 't-suit-l', weight: 'Size L (Bust 40 in)', price: 1699, originalPrice: 2499, inStock: true },
+      { id: 't-suit-xl', weight: 'Size XL (Bust 42 in)', price: 1699, originalPrice: 2499, inStock: true }
+    ],
+    description: 'Designed by Neelam for busy homemakers who cherish all-day comfort without compromising on elegance. Crafted from 100% fine combed Mulmul cotton that breathes through long kitchen cooking sessions. Hand-block floral motifs with deep side pockets.',
+    origin: 'Handcrafted in Jaipur, Rajasthan',
+    processingMethod: 'Traditional wooden block printing with natural azo-free dyes',
+    keyIngredients: ['100% Breathable Combed Mulmul Cotton', 'Pure Chiffon Dupatta'],
+    neelamTip: 'This is my personal favorite suit for daily vlogging and kitchen routines! It gets softer with every wash and keeps you cool even during deep frying sessions.',
+    fssaiNumber: 'Certified Handloom Artisan Quality',
+    shelfLife: 'Long Lasting Fabric'
+  },
+  {
+    id: 'teestah-festive-anarkali',
+    name: 'Teestah Label Chanderi Festive Anarkali Kurti Set',
+    hindiName: 'तीस्ता चंदेरी अनारकली सेट',
+    tagline: 'Graceful festive silhouette with delicate gota-patti border as seen in Neelam’s vlogs',
+    category: 'teestah-label',
+    categoryLabel: 'Teestah Label (Apparel)',
+    rating: 5.0,
+    reviewCount: 64,
+    isNew: true,
+    isVeg: true,
+    badgeText: 'Festive Drop',
+    images: [
+      'https://images.unsplash.com/photo-1583391733956-3750e0ff4e8b?auto=format&fit=crop&w=800&q=80',
+      'https://images.unsplash.com/photo-1610030469983-98e550d6193c?auto=format&fit=crop&w=800&q=80'
+    ],
+    variants: [
+      { id: 't-anar-m', weight: 'Size M (Bust 38 in)', price: 2299, originalPrice: 3299, inStock: true },
+      { id: 't-anar-l', weight: 'Size L (Bust 40 in)', price: 2299, originalPrice: 3299, inStock: true }
+    ],
+    description: 'A regal pastel peach Chanderi silk-cotton blend Anarkali set featuring subtle golden gota work along the neckline and hem. Includes flared palazzo trousers and a lightweight zari border dupatta.',
+    origin: 'Chanderi, Madhya Pradesh',
+    processingMethod: 'Artisan hand-loom weaving with handcrafted gota embroidery',
+    keyIngredients: ['Chanderi Silk-Cotton Blend', 'Fine Gota Work'],
+    neelamTip: 'Pair with antique brass or gold jhumkas for family poojas and festival dinners.',
+    fssaiNumber: 'Artisan Silk Mark Handloom Certified',
+    shelfLife: 'Heirloom Garment'
+  },
+  {
+    id: 'teestah-cotton-kitchen-apron',
+    name: 'Teestah Artisan Slub Cotton Kitchen Apron & Mitts Duo',
+    hindiName: 'तीस्ता कॉटन एप्रन सेट',
+    tagline: '100% heavy slub cotton with deep pockets for phones, spoons & towel loops',
+    category: 'teestah-label',
+    categoryLabel: 'Teestah Label (Linens)',
+    rating: 4.8,
+    reviewCount: 112,
+    isBestseller: true,
+    isVeg: true,
+    badgeText: 'Kitchen Essential',
+    images: [
+      'https://images.unsplash.com/photo-1577219491135-ce391730fb2c?auto=format&fit=crop&w=800&q=80'
+    ],
+    variants: [
+      { id: 't-apron-duo', weight: 'Apron + 2 Heat Resistant Oven Mitts', price: 499, originalPrice: 799, inStock: true }
+    ],
+    description: 'Heavyweight pre-washed 100% cotton canvas apron engineered for real kitchen use. Features dual reinforced front kangaroo pockets, adjustable neck strap, and matching heat-insulated padded baking mitts.',
+    origin: 'Karur, Tamil Nadu',
+    processingMethod: 'Heavy power-loom woven slub cotton canvas',
+    keyIngredients: ['100% Pre-Shrunk Cotton Canvas', 'Heat-Resistant Cotton Padding'],
+    neelamTip: 'Saves your favorite suits from oil splatters and tadka splashes. Machine-washable and highly absorbent.',
+    fssaiNumber: 'Home Textile Standard',
+    shelfLife: 'Multi-Year Kitchen Durability'
+  },
+  {
+    id: 'teestah-dining-table-runner',
+    name: 'Teestah Handwoven Cotton Dining Table Runner & Placemats',
+    hindiName: 'तीस्ता टेबल रनर सेट',
+    tagline: 'Boho rustic dining makeover matching Neelam’s cozy kitchen aesthetic',
+    category: 'teestah-label',
+    categoryLabel: 'Teestah Label (Linens)',
+    rating: 4.9,
+    reviewCount: 46,
+    isVeg: true,
+    badgeText: 'Home Decor',
+    images: [
+      'https://images.unsplash.com/photo-1616486338812-3dadae4b4ace?auto=format&fit=crop&w=800&q=80'
+    ],
+    variants: [
+      { id: 't-runner-set', weight: '1 Runner (72x14 in) + 6 Placemats', price: 899, originalPrice: 1299, inStock: true }
+    ],
+    description: 'Handwoven textured natural cotton table runner with braided tassel fringe. Protects wooden and glass dining tables from hot kadhais and gives an earthy warm restaurant feel to everyday family meals.',
+    origin: 'Panipat, Haryana',
+    processingMethod: 'Pitloom textured cotton weaving with hand-tied tassels',
+    keyIngredients: ['Natural Raw Cotton Yarn'],
+    neelamTip: 'Matches perfectly with our brass tadka pan and terracotta dinnerware for family thali presentation!',
+    fssaiNumber: 'Handcrafted Home Furnishing Standard',
+    shelfLife: 'Durable Fabric'
+  },
+  {
+    id: 'amazon-philips-mixer-grinder',
+    name: 'Philips HL7756/00 750W Heavy-Duty Mixer Grinder',
+    hindiName: 'फिलिप्स 750W मिक्सर ग्राइंडर',
+    tagline: 'Neelam’s vlog verified grinder for smooth tomato gravies & tough masala pastes',
+    category: 'amazon-appliances',
+    categoryLabel: 'Kitchen Appliances (Amazon Curated)',
+    rating: 4.8,
+    reviewCount: 940,
+    isBestseller: true,
+    isVeg: true,
+    isExternal: true,
+    externalUrl: 'https://www.amazon.in/shop/indianyoutuberneelam?tag=indianyoutu06-21',
+    badgeText: 'Amazon Influencer Curated',
+    images: [
+      'https://images.unsplash.com/photo-1585515320310-259814833e62?auto=format&fit=crop&w=800&q=80'
+    ],
+    variants: [
+      { id: 'amz-philips', weight: '750W Motor (3 Stainless Steel Jars)', price: 3499, originalPrice: 4795, inStock: true }
+    ],
+    description: 'The exact high-torque mixer grinder featured in Neelam’s Shahi Paneer and Kitchen Reset vlogs. Powers through dry turmeric rhizomes, whole garam masalas, and smooth silk tomato purees without motor stalling.',
+    origin: 'Philips Domestic Appliances (Amazon Official Partner)',
+    processingMethod: 'Advanced air ventilation & leak-proof stainless steel jars',
+    keyIngredients: ['750W Turbo Motor', 'Food-Grade 304 Stainless Steel Jars'],
+    neelamTip: 'This is the exact workhorse I use daily in my kitchen! Use the small chutney jar for grinding our whole Kasuri Methi and Shahi Garam Masala.',
+    fssaiNumber: 'ISI & BIS Certified Appliance',
+    shelfLife: '2-Year Manufacturer Warranty'
+  },
+  {
+    id: 'amazon-faber-gas-stove',
+    name: 'Faber 3-Burner Toughened Glass Automatic Hob Cooktop',
+    hindiName: 'फेबर 3-बर्नर ऑटोमेटिक गैस चूल्हा',
+    tagline: 'Cast iron pan supports with high-efficiency brass burners for modern kitchens',
+    category: 'amazon-appliances',
+    categoryLabel: 'Kitchen Appliances (Amazon Curated)',
+    rating: 4.7,
+    reviewCount: 520,
+    isVeg: true,
+    isExternal: true,
+    externalUrl: 'https://www.amazon.in/shop/indianyoutuberneelam?tag=indianyoutu06-21',
+    badgeText: 'Amazon Influencer Curated',
+    images: [
+      'https://images.unsplash.com/photo-1588854337221-4cf9fa96059c?auto=format&fit=crop&w=800&q=80'
+    ],
+    variants: [
+      { id: 'amz-faber', weight: '3 Burner Toughened Glass (Auto-Ignition)', price: 7490, originalPrice: 12990, inStock: true }
+    ],
+    description: 'Featured in Neelam’s kitchen makeover vlog! Premium 8mm shatterproof black glass top, heavy-duty cast iron pan supports that firmly hold heavy iron kadhais without slipping, and auto-ignition convenience.',
+    origin: 'Faber India (Amazon Official Storefront)',
+    processingMethod: 'Toughened glass with Italian-engineered brass burners',
+    keyIngredients: ['Toughened Glass', 'High Thermal Brass Burners', 'Cast Iron Pan Supports'],
+    neelamTip: 'The wide burner spacing lets you place a heavy 2.5L kadhai, a pressure cooker, and a tadka pan all at once effortlessly.',
+    fssaiNumber: 'ISI Certified Kitchen Appliance',
+    shelfLife: '5-Year Toughened Glass Warranty'
+  }
 ];
 
 export const PINCODES_DATA: Record<string, { city: string; state: string; days: string }> = {

@@ -3,7 +3,7 @@
 import React, { useState } from 'react';
 import { useStore } from '../context/StoreContext';
 import { PRODUCTS, FALLBACK_IMAGE } from '../data/products';
-import { X, Youtube, Clock, ChefHat, Users, ShoppingBag, Sparkles, Play, Video, BookOpen, Check } from 'lucide-react';
+import { X, Youtube, Clock, ChefHat, Users, ShoppingBag, Sparkles, Play, Video, BookOpen, Check, ExternalLink } from 'lucide-react';
 
 export const RecipeModal: React.FC = () => {
   const { recipeModalVlog, setRecipeModalVlog, addToCart, setIsCartOpen } = useStore();
@@ -161,6 +161,44 @@ export const RecipeModal: React.FC = () => {
                   <p className="flex-1 font-sans">{step}</p>
                 </div>
               ))}
+            </div>
+          </div>
+
+          {/* Appliances Used in this Video */}
+          <div className="bg-cream-100/90 rounded-2xl p-4 border border-cream-200 space-y-2.5">
+            <div className="flex items-center justify-between text-xs">
+              <span className="font-serif font-bold text-charcoal-900 flex items-center gap-1.5">
+                <span>Kitchen Appliances Used in this Vlog</span>
+              </span>
+              <a
+                href="https://www.amazon.in/shop/indianyoutuberneelam?tag=indianyoutu06-21"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="text-[11px] font-bold text-amber-800 hover:text-amber-900 hover:underline flex items-center gap-1"
+              >
+                <span>Neelam's Amazon Shop</span>
+                <ExternalLink className="w-3 h-3" />
+              </a>
+            </div>
+            <div className="grid grid-cols-1 sm:grid-cols-2 gap-2 text-xs">
+              <a
+                href="https://www.amazon.in/shop/indianyoutuberneelam?tag=indianyoutu06-21"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="flex items-center justify-between p-2 rounded-xl bg-white border border-cream-200 hover:border-amber-400 transition-colors"
+              >
+                <span className="text-charcoal-800 font-medium truncate">Philips 750W Mixer Grinder</span>
+                <span className="text-[10px] font-bold text-amber-800 bg-amber-100 px-1.5 py-0.5 rounded ml-2 flex-shrink-0">Prime ↗</span>
+              </a>
+              <a
+                href="https://www.amazon.in/shop/indianyoutuberneelam?tag=indianyoutu06-21"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="flex items-center justify-between p-2 rounded-xl bg-white border border-cream-200 hover:border-amber-400 transition-colors"
+              >
+                <span className="text-charcoal-800 font-medium truncate">Faber Toughened Glass Hob</span>
+                <span className="text-[10px] font-bold text-amber-800 bg-amber-100 px-1.5 py-0.5 rounded ml-2 flex-shrink-0">Prime ↗</span>
+              </a>
             </div>
           </div>
 

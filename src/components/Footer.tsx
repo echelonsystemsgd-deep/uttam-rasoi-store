@@ -144,9 +144,14 @@ export const Footer: React.FC = () => {
                 </button>
               </li>
               <li>
-                <button onClick={() => scrollTo('product-catalog')} className="hover:text-amberSpice-400 transition-colors">
-                  Festive Gift Hampers
+                <button onClick={() => scrollTo('teestah-label')} className="hover:text-rose-400 transition-colors font-bold text-rose-300">
+                  Teestah Cotton Suits 🌸
                 </button>
+              </li>
+              <li>
+                <a href="https://www.amazon.in/shop/indianyoutuberneelam?tag=indianyoutu06-21" target="_blank" rel="noopener noreferrer" className="hover:text-amber-400 transition-colors text-amber-300 font-semibold">
+                  Amazon Kitchen Gear ↗
+                </a>
               </li>
             </ul>
           </div>
@@ -191,7 +196,7 @@ export const Footer: React.FC = () => {
           {/* Trust & Compliance Badge */}
           <div className="lg:col-span-3 space-y-3">
             <h4 className="font-serif font-bold text-sm text-white uppercase tracking-wider">
-              Government Certifications
+              Certifications & Partners
             </h4>
             <div className="p-3.5 rounded-2xl bg-charcoal-900 border border-charcoal-800 space-y-2">
               <div className="flex items-center gap-2 text-xs font-bold text-emerald-400">
@@ -206,6 +211,22 @@ export const Footer: React.FC = () => {
                 <span>100% Vegetarian Green Dot Certified</span>
               </div>
             </div>
+
+            {/* Amazon Influencer Badge */}
+            <a
+              href="https://www.amazon.in/shop/indianyoutuberneelam?tag=indianyoutu06-21"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="block p-3 rounded-2xl bg-charcoal-900/90 border border-amber-500/30 hover:border-amber-400 transition-colors text-xs text-cream-200"
+            >
+              <div className="flex items-center justify-between text-amber-400 font-bold mb-1">
+                <span>Verified Amazon Creator</span>
+                <span>↗</span>
+              </div>
+              <p className="text-[11px] text-cream-300/80 leading-tight">
+                Shop Neelam's curated kitchen appliances, gas stoves & home organizers with Prime.
+              </p>
+            </a>
 
             <p className="text-[11px] text-cream-300/60 leading-tight">
               Customer Support: {SITE_CONFIG.supportEmail} | {SITE_CONFIG.whatsappDisplay} ({SITE_CONFIG.operatingHours})
