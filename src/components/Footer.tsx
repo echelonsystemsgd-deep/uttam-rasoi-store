@@ -25,7 +25,7 @@ export const Footer: React.FC = () => {
   };
 
   return (
-    <footer className="bg-charcoal-950 text-cream-100 pt-16 pb-24 sm:pb-16 border-t border-charcoal-800">
+    <footer className="bg-charcoal-950 text-cream-100 pt-16 pb-32 md:pb-16 border-t border-charcoal-800">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         
         {/* Top Newsletter & Club Strip */}
@@ -94,7 +94,7 @@ export const Footer: React.FC = () => {
                 className="w-9 h-9 rounded-xl bg-charcoal-800 hover:bg-red-600 text-cream-200 hover:text-white flex items-center justify-center transition-colors"
                 aria-label="YouTube Channel"
               >
-                <Youtube className="w-5 h-5 fill-current" />
+                <Youtube className="w-5 h-5" />
               </a>
               <a
                 href={SITE_CONFIG.social.instagram}

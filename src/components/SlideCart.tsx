@@ -2,7 +2,7 @@
 
 import React, { useState } from 'react';
 import { useStore } from '../context/StoreContext';
-import { PRODUCTS } from '../data/products';
+import { PRODUCTS, FALLBACK_IMAGE } from '../data/products';
 import {
   X,
   ShoppingBag,
@@ -154,7 +154,10 @@ export const SlideCart: React.FC = () => {
                     <img
                       src={item.image}
                       alt={item.productName}
-                      className="w-16 h-16 rounded-xl object-cover border border-cream-200 flex-shrink-0"
+                      onError={(e) => {
+                        (e.target as HTMLImageElement).src = FALLBACK_IMAGE;
+                      }}
+                      className="w-16 h-16 rounded-xl object-cover border border-cream-200 flex-shrink-0 bg-cream-100"
                     />
 
                     {/* Details */}
@@ -228,7 +231,10 @@ export const SlideCart: React.FC = () => {
                           <img
                             src={up.images[0]}
                             alt={up.name}
-                            className="w-10 h-10 rounded-lg object-cover flex-shrink-0"
+                            onError={(e) => {
+                              (e.target as HTMLImageElement).src = FALLBACK_IMAGE;
+                            }}
+                            className="w-10 h-10 rounded-lg object-cover flex-shrink-0 bg-cream-100"
                           />
                           <div className="flex-1 min-w-0">
                             <p className="text-xs font-bold text-charcoal-900 truncate">{up.name}</p>

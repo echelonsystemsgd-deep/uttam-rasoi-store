@@ -30,9 +30,37 @@ const jakarta = Plus_Jakarta_Sans({
 export const metadata: Metadata = {
   metadataBase: new URL(SITE_CONFIG.url),
   title: 'Uttam Rasoi by Neelam | Ghar Ka Swad, Modern Kitchen | Stone-Ground Spices',
-  description: '100% Pure, Stone-Ground Indian Spices, Pre-Seasoned Cast Iron Cookware & Aesthetic Storage curated by YouTube creator Neelam Saurabh Sharma. FSSAI Certified.',
-  keywords: ['Indian Spices', 'Uttam Rasoi', 'Neelam Sharma', 'Stone Ground Masala', 'Garam Masala', 'Cast Iron Kadhai', 'Degi Mirch', 'FSSAI certified'],
-  authors: [{ name: 'Neelam Saurabh Sharma' }],
+  description: '100% Pure, Stone-Ground Indian Spices, Pre-Seasoned Cast Iron Cookware & Aesthetic Kitchen Storage curated by YouTube creator Neelam Saurabh Sharma. FSSAI Certified.',
+  applicationName: SITE_CONFIG.name,
+  generator: 'Uttam Rasoi Digital Engine',
+  keywords: ['Indian Spices', 'Uttam Rasoi', 'Neelam Sharma', 'Stone Ground Masala', 'Garam Masala', 'Cast Iron Kadhai', 'Degi Mirch', 'FSSAI certified', 'Pure Kitchen King', 'Indian Cookware'],
+  authors: [{ name: 'Neelam Saurabh Sharma', url: SITE_CONFIG.social.youtube }],
+  creator: 'Neelam Saurabh Sharma',
+  publisher: SITE_CONFIG.name,
+  formatDetection: {
+    telephone: true,
+    date: true,
+    address: true,
+    email: true,
+  },
+  alternates: {
+    canonical: SITE_CONFIG.url,
+    languages: {
+      'en-IN': SITE_CONFIG.url,
+      'hi-IN': SITE_CONFIG.url,
+    },
+  },
+  icons: {
+    icon: [
+      { url: '/favicon.svg', type: 'image/svg+xml' },
+      { url: '/icon.svg', type: 'image/svg+xml' },
+    ],
+    shortcut: ['/favicon.svg'],
+    apple: [
+      { url: '/icon.svg', sizes: '180x180', type: 'image/svg+xml' },
+    ],
+  },
+  manifest: '/manifest.webmanifest',
   openGraph: {
     title: 'Uttam Rasoi by Neelam | Authentic Artisan Indian Kitchen',
     description: '100% Stone-Ground, Chemical-Free Spices & Handcrafted Cookware. Curated with Homemaker’s Love.',
@@ -55,6 +83,17 @@ export const metadata: Metadata = {
     description: '100% Stone-Ground, Chemical-Free Spices & Cookware curated with Homemaker’s Love.',
     images: [SITE_CONFIG.ogImage],
   },
+  robots: {
+    index: true,
+    follow: true,
+    googleBot: {
+      index: true,
+      follow: true,
+      'max-video-preview': -1,
+      'max-image-preview': 'large',
+      'max-snippet': -1,
+    },
+  },
 };
 
 export const viewport: Viewport = {
@@ -73,7 +112,7 @@ const jsonLdData = {
       '@id': `${SITE_CONFIG.url}/#brand`,
       name: SITE_CONFIG.name,
       url: SITE_CONFIG.url,
-      logo: `${SITE_CONFIG.url}/logo.png`,
+      logo: `${SITE_CONFIG.url}/icon.svg`,
       description: SITE_CONFIG.tagline,
       founder: {
         '@type': 'Person',
@@ -121,6 +160,8 @@ export default function RootLayout({
   return (
     <html lang="en" className={`${playfair.variable} ${jakarta.variable}`}>
       <head>
+        <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
+        <link rel="apple-touch-icon" href="/icon.svg" />
         <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLdData) }}
@@ -131,7 +172,7 @@ export default function RootLayout({
           <ToastNotification />
           <AnnouncementBar />
           <Navbar />
-          <main className="flex-grow">
+          <main className="flex-grow pb-16 md:pb-0">
             {children}
           </main>
           

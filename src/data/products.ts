@@ -1,5 +1,7 @@
 import { Product } from '../types';
 
+export const FALLBACK_IMAGE = 'https://images.unsplash.com/photo-1596040033229-a9821ebd058d?auto=format&fit=crop&w=800&q=80';
+
 export const PRODUCTS: Product[] = [
   {
     id: 'royal-shahi-garam-masala',
@@ -69,8 +71,8 @@ export const PRODUCTS: Product[] = [
     isBestseller: true,
     isVeg: true,
     images: [
-      'https://images.unsplash.com/photo-1621996346565-e3d5d62810cd?auto=format&fit=crop&w=800&q=80',
-      'https://images.unsplash.com/photo-1596040033229-a9821ebd058d?auto=format&fit=crop&w=800&q=80',
+      'https://images.unsplash.com/photo-1627834377411-8da5f4f09de8?auto=format&fit=crop&w=800&q=80',
+      'https://images.unsplash.com/photo-1563865436874-9aef32095fad?auto=format&fit=crop&w=800&q=80',
     ],
     variants: [
       { id: 'km-100', weight: '100g', price: 109, originalPrice: 149, inStock: true },
@@ -122,8 +124,8 @@ export const PRODUCTS: Product[] = [
     isBestseller: true,
     isVeg: true,
     images: [
-      'https://images.unsplash.com/photo-1584990347449-3e3c0f653457?auto=format&fit=crop&w=800&q=80',
-      'https://images.unsplash.com/photo-1584990347462-841fce3f738c?auto=format&fit=crop&w=800&q=80',
+      'https://images.unsplash.com/photo-1585518419759-7fe2e0fbf8a6?auto=format&fit=crop&w=800&q=80',
+      'https://images.unsplash.com/photo-1596797038530-2c107229654b?auto=format&fit=crop&w=800&q=80',
     ],
     variants: [
       { id: 'kad-25', weight: '2.5L (9.5-inch / 2.7kg)', price: 1499, originalPrice: 1999, inStock: true },
@@ -251,8 +253,8 @@ export const PRODUCTS: Product[] = [
     reviewCount: 142,
     isVeg: true,
     images: [
-      'https://images.unsplash.com/photo-1584990347462-841fce3f738c?auto=format&fit=crop&w=800&q=80',
-      'https://images.unsplash.com/photo-1584990347449-3e3c0f653457?auto=format&fit=crop&w=800&q=80',
+      'https://images.unsplash.com/photo-1547592180-85f173990554?auto=format&fit=crop&w=800&q=80',
+      'https://images.unsplash.com/photo-1589301760014-d929f3979dbc?auto=format&fit=crop&w=800&q=80',
     ],
     variants: [
       { id: 'tad-brass', weight: 'Single (12cm Pan with Handle)', price: 749, originalPrice: 999, inStock: true },

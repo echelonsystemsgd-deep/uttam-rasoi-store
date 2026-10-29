@@ -2,6 +2,7 @@
 
 import React, { useState } from 'react';
 import { Product } from '../types';
+import { FALLBACK_IMAGE } from '../data/products';
 import { useStore } from '../context/StoreContext';
 import { Star, Heart, ShoppingBag, Plus, Minus, Eye, Check } from 'lucide-react';
 
@@ -83,6 +84,9 @@ export const ProductCard: React.FC<ProductCardProps> = ({ product }) => {
         <img
           src={product.images[currentImageIdx] || product.images[0]}
           alt={product.name}
+          onError={(e) => {
+            (e.target as HTMLImageElement).src = FALLBACK_IMAGE;
+          }}
           className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
           loading="lazy"
         />

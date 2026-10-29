@@ -2,6 +2,7 @@
 
 import React, { useState } from 'react';
 import { useStore } from '../context/StoreContext';
+import { FALLBACK_IMAGE } from '../data/products';
 import {
   X,
   Star,
@@ -65,6 +66,9 @@ export const ProductQuickViewModal: React.FC = () => {
               <img
                 src={quickViewProduct.images[activeImageIdx] || quickViewProduct.images[0]}
                 alt={quickViewProduct.name}
+                onError={(e) => {
+                  (e.target as HTMLImageElement).src = FALLBACK_IMAGE;
+                }}
                 className="w-full h-full object-cover transition-all duration-300"
               />
 

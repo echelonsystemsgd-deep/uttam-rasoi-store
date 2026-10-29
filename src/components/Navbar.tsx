@@ -131,7 +131,7 @@ export const Navbar: React.FC = () => {
           <div className="flex items-center gap-2 sm:gap-3.5">
             
             {/* Interactive Search Bar */}
-            <div ref={searchRef} className="relative hidden md:block w-48 lg:w-64">
+            <div ref={searchRef} className="relative hidden lg:block w-48 xl:w-64">
               <div className="relative">
                 <input
                   type="text"
