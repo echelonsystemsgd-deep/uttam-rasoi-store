@@ -3,6 +3,7 @@
 import React, { useState } from 'react';
 import { useStore } from '../context/StoreContext';
 import { PINCODES_DATA } from '../data/products';
+import { SITE_CONFIG, getWhatsAppLink } from '../config/site';
 import {
   X,
   ShieldCheck,
@@ -175,7 +176,7 @@ export const CheckoutModal: React.FC = () => {
             {/* Action buttons */}
             <div className="flex flex-col sm:flex-row gap-3 pt-2">
               <a
-                href={`https://wa.me/919876543210?text=Namaste%20Neelam%20ji,%20I%20have%20placed%20order%20${latestOrder.orderId}%20for%20Rs%20${latestOrder.total}.%20Please%20send%20tracking%20updates!`}
+                href={getWhatsAppLink(`Namaste Neelam ji, I have placed order ${latestOrder.orderId} for Rs ${latestOrder.total}. Please send tracking updates!`)}
                 target="_blank"
                 rel="noopener noreferrer"
                 className="flex-1 py-3 px-4 rounded-xl bg-forestSage-700 hover:bg-forestSage-800 text-white font-bold text-xs flex items-center justify-center gap-2 shadow-sm"
@@ -228,7 +229,8 @@ export const CheckoutModal: React.FC = () => {
                     </span>
                     <input
                       type="tel"
-                      placeholder="98765 43210"
+                      inputMode="numeric"
+                      placeholder="98765 XXXXX"
                       value={phone}
                       onChange={(e) => setPhone(e.target.value)}
                       className="w-full bg-cream-50 border border-cream-300 rounded-r-xl px-3.5 py-2 text-xs focus:ring-1 focus:ring-terracotta-500 focus:bg-white"
@@ -257,6 +259,7 @@ export const CheckoutModal: React.FC = () => {
                   </label>
                   <input
                     type="text"
+                    inputMode="numeric"
                     maxLength={6}
                     placeholder="110001"
                     value={pincode}

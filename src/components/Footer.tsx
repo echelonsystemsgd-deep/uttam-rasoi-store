@@ -1,11 +1,12 @@
 'use client';
 
 import React, { useState } from 'react';
-import { Youtube, Instagram, Facebook, ShieldCheck, Mail, ArrowRight, Heart, Sparkles, CheckCircle2 } from 'lucide-react';
+import { Youtube, Instagram, Facebook, ShieldCheck, Mail, ArrowRight, Heart, Sparkles, CheckCircle2, FileText, Truck, RotateCcw } from 'lucide-react';
 import { useStore } from '../context/StoreContext';
+import { SITE_CONFIG, getWhatsAppLink } from '../config/site';
 
 export const Footer: React.FC = () => {
-  const { showToast } = useStore();
+  const { showToast, setActivePolicy } = useStore();
   const [newsletterEmail, setNewsletterEmail] = useState('');
   const [subscribed, setSubscribed] = useState(false);
 
@@ -87,7 +88,7 @@ export const Footer: React.FC = () => {
             {/* Social Icons */}
             <div className="flex items-center gap-3 pt-2">
               <a
-                href="https://www.youtube.com/@indianyoutuberneelamvlogs"
+                href={SITE_CONFIG.social.youtube}
                 target="_blank"
                 rel="noopener noreferrer"
                 className="w-9 h-9 rounded-xl bg-charcoal-800 hover:bg-red-600 text-cream-200 hover:text-white flex items-center justify-center transition-colors"
@@ -96,7 +97,7 @@ export const Footer: React.FC = () => {
                 <Youtube className="w-5 h-5 fill-current" />
               </a>
               <a
-                href="https://www.instagram.com/indianyoutuberneelam"
+                href={SITE_CONFIG.social.instagram}
                 target="_blank"
                 rel="noopener noreferrer"
                 className="w-9 h-9 rounded-xl bg-charcoal-800 hover:bg-pink-600 text-cream-200 hover:text-white flex items-center justify-center transition-colors"
@@ -105,7 +106,7 @@ export const Footer: React.FC = () => {
                 <Instagram className="w-5 h-5" />
               </a>
               <a
-                href="https://facebook.com"
+                href={SITE_CONFIG.social.facebook}
                 target="_blank"
                 rel="noopener noreferrer"
                 className="w-9 h-9 rounded-xl bg-charcoal-800 hover:bg-blue-600 text-cream-200 hover:text-white flex items-center justify-center transition-colors"
@@ -134,7 +135,7 @@ export const Footer: React.FC = () => {
               </li>
               <li>
                 <button onClick={() => scrollTo('product-catalog')} className="hover:text-amberSpice-400 transition-colors">
-                  Cast Iron & Brass Cookware
+                  Cast Iron Cookware
                 </button>
               </li>
               <li>
@@ -144,36 +145,39 @@ export const Footer: React.FC = () => {
               </li>
               <li>
                 <button onClick={() => scrollTo('product-catalog')} className="hover:text-amberSpice-400 transition-colors">
-                  Festive Starter Hampers
+                  Festive Gift Hampers
                 </button>
               </li>
             </ul>
           </div>
 
-          {/* Recipes & Brand */}
+          {/* Customer Care & Policies */}
           <div className="lg:col-span-3 space-y-3">
             <h4 className="font-serif font-bold text-sm text-white uppercase tracking-wider">
-              Vlogs & Story
+              Care & Policies
             </h4>
             <ul className="space-y-2 text-xs text-cream-300/80">
               <li>
-                <button onClick={() => scrollTo('shoppable-vlogs')} className="hover:text-amberSpice-400 transition-colors">
-                  Shoppable YouTube Recipes
+                <button onClick={() => setActivePolicy('shipping')} className="hover:text-amberSpice-400 transition-colors flex items-center gap-1.5">
+                  <Truck className="w-3.5 h-3.5 text-amberSpice-400" />
+                  <span>Shipping & Delivery Policy</span>
                 </button>
               </li>
               <li>
-                <button onClick={() => scrollTo('founders-story')} className="hover:text-amberSpice-400 transition-colors">
-                  Neelam’s Kitchen Mission
+                <button onClick={() => setActivePolicy('returns')} className="hover:text-amberSpice-400 transition-colors flex items-center gap-1.5">
+                  <RotateCcw className="w-3.5 h-3.5 text-amberSpice-400" />
+                  <span>7-Day Replacement Guarantee</span>
                 </button>
               </li>
               <li>
-                <button onClick={() => scrollTo('customer-reviews')} className="hover:text-amberSpice-400 transition-colors">
-                  Community Thali Gallery
+                <button onClick={() => setActivePolicy('privacy')} className="hover:text-amberSpice-400 transition-colors flex items-center gap-1.5">
+                  <ShieldCheck className="w-3.5 h-3.5 text-amberSpice-400" />
+                  <span>Privacy & Consumer Terms</span>
                 </button>
               </li>
               <li>
                 <a
-                  href="https://wa.me/919876543210?text=Namaste%20Neelam%20ji,%20I%20want%20to%20track%20my%20order"
+                  href={getWhatsAppLink('Namaste Neelam ji, I want to track my order')}
                   target="_blank"
                   rel="noopener noreferrer"
                   className="hover:text-amberSpice-400 transition-colors block"
@@ -195,7 +199,7 @@ export const Footer: React.FC = () => {
                 <span>FSSAI Certified Brand</span>
               </div>
               <p className="text-[11px] text-cream-300/70 font-mono">
-                Lic. No: <strong>13324001000492</strong>
+                Lic. No: <strong>{SITE_CONFIG.fssaiNumber}</strong>
               </p>
               <div className="flex items-center gap-1.5 text-[11px] text-emerald-300">
                 <div className="w-2 h-2 rounded-full bg-emerald-500" />
@@ -204,7 +208,7 @@ export const Footer: React.FC = () => {
             </div>
 
             <p className="text-[11px] text-cream-300/60 leading-tight">
-              Customer Support: care@uttamrasoi.com | +91 98765 43210 (Mon-Sat 10am - 7pm IST)
+              Customer Support: {SITE_CONFIG.supportEmail} | {SITE_CONFIG.whatsappDisplay} ({SITE_CONFIG.operatingHours})
             </p>
           </div>
 

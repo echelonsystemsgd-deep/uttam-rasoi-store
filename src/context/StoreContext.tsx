@@ -39,6 +39,8 @@ interface StoreContextType {
   setQuickViewProduct: (product: Product | null) => void;
   recipeModalVlog: RecipeVlog | null;
   setRecipeModalVlog: (vlog: RecipeVlog | null) => void;
+  activePolicy: 'shipping' | 'returns' | 'privacy' | null;
+  setActivePolicy: (policy: 'shipping' | 'returns' | 'privacy' | null) => void;
   
   // Cart Actions
   addToCart: (product: Product, variantIndex?: number, qty?: number) => void;
@@ -90,6 +92,7 @@ export const StoreProvider: React.FC<{ children: React.ReactNode }> = ({ childre
   const [isPincodeModalOpen, setIsPincodeModalOpen] = useState(false);
   const [quickViewProduct, setQuickViewProduct] = useState<Product | null>(null);
   const [recipeModalVlog, setRecipeModalVlog] = useState<RecipeVlog | null>(null);
+  const [activePolicy, setActivePolicy] = useState<'shipping' | 'returns' | 'privacy' | null>(null);
   const [orderNote, setOrderNote] = useState('');
   const [appliedCoupon, setAppliedCoupon] = useState<Coupon | null>(null);
   const [couponError, setCouponError] = useState<string | null>(null);
@@ -359,6 +362,8 @@ export const StoreProvider: React.FC<{ children: React.ReactNode }> = ({ childre
         setQuickViewProduct,
         recipeModalVlog,
         setRecipeModalVlog,
+        activePolicy,
+        setActivePolicy,
         addToCart,
         removeFromCart,
         updateQuantity,

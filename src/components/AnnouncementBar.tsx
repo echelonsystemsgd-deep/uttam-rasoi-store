@@ -3,6 +3,7 @@
 import React from 'react';
 import { Truck, MessageCircle, ShieldCheck, Sparkles } from 'lucide-react';
 import { useStore } from '../context/StoreContext';
+import { SITE_CONFIG, getWhatsAppLink } from '../config/site';
 
 export const AnnouncementBar: React.FC = () => {
   const { freeShippingThreshold, setIsPincodeModalOpen, pincode, pincodeInfo } = useStore();
@@ -32,7 +33,7 @@ export const AnnouncementBar: React.FC = () => {
           <span className="text-terracotta-300">|</span>
 
           <a
-            href="https://wa.me/919876543210?text=Namaste%20Neelam%20ji,%20I%20have%20a%20query%20about%20Uttam%20Rasoi%20products"
+            href={getWhatsAppLink('Namaste Neelam ji, I have a query about Uttam Rasoi products')}
             target="_blank"
             rel="noopener noreferrer"
             className="hover:text-white flex items-center gap-1 transition-colors"
@@ -45,7 +46,7 @@ export const AnnouncementBar: React.FC = () => {
 
           <span className="hidden md:flex items-center gap-1 text-cream-200">
             <ShieldCheck className="w-3 h-3 text-amber-300" />
-            <span>FSSAI Lic. #13324001000492</span>
+            <span>FSSAI Lic. #{SITE_CONFIG.fssaiNumber}</span>
           </span>
         </div>
       </div>

@@ -2,6 +2,7 @@
 
 import React, { useState } from 'react';
 import { MessageCircle, X, Send, Sparkles } from 'lucide-react';
+import { SITE_CONFIG, getWhatsAppLink } from '../config/site';
 
 export const FloatingWhatsApp: React.FC = () => {
   const [isOpen, setIsOpen] = useState(false);
@@ -14,8 +15,7 @@ export const FloatingWhatsApp: React.FC = () => {
   ];
 
   const handleSendQuery = (text: string) => {
-    const encoded = encodeURIComponent(text);
-    window.open(`https://wa.me/919876543210?text=${encoded}`, '_blank');
+    window.open(getWhatsAppLink(text), '_blank');
     setIsOpen(false);
   };
 

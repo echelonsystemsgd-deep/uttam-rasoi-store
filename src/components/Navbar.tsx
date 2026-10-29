@@ -5,6 +5,7 @@ import { Search, ShoppingBag, Heart, MapPin, Menu, X, ChevronRight, Sparkles, Yo
 import { useStore } from '../context/StoreContext';
 import { PRODUCTS } from '../data/products';
 import { Product } from '../types';
+import { SITE_CONFIG, getWhatsAppLink } from '../config/site';
 
 export const Navbar: React.FC = () => {
   const {
@@ -339,13 +340,13 @@ export const Navbar: React.FC = () => {
 
           {/* Direct WhatsApp Callout in mobile drawer */}
           <a
-            href="https://wa.me/919876543210?text=Namaste%20Neelam%20ji,%20I%20want%20to%20order%20spices%20directly"
+            href={getWhatsAppLink('Namaste Neelam ji, I want to order spices directly')}
             target="_blank"
             rel="noopener noreferrer"
             className="w-full py-2.5 px-4 rounded-xl bg-forestSage-700 text-white flex items-center justify-center gap-2 text-xs font-semibold hover:bg-forestSage-800 transition-colors shadow-sm"
           >
             <PhoneCall className="w-4 h-4" />
-            <span>Order Directly via WhatsApp (+91 98765 43210)</span>
+            <span>Order Directly via WhatsApp ({SITE_CONFIG.whatsappDisplay})</span>
           </a>
         </div>
       )}
