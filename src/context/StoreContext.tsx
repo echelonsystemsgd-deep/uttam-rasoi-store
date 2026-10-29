@@ -145,6 +145,29 @@ export const StoreProvider: React.FC<{ children: React.ReactNode }> = ({ childre
     }
   }, [wishlist]);
 
+  // Universal body scroll lock when ANY modal or drawer is active
+  useEffect(() => {
+    const isModalOpen =
+      isCartOpen ||
+      isCheckoutOpen ||
+      isPincodeModalOpen ||
+      quickViewProduct !== null ||
+      recipeModalVlog !== null ||
+      activePolicy !== null;
+
+    if (isModalOpen) {
+      const originalOverflow = document.body.style.overflow;
+      const originalTouchAction = document.body.style.touchAction;
+      document.body.style.overflow = 'hidden';
+      document.body.style.touchAction = 'none';
+
+      return () => {
+        document.body.style.overflow = originalOverflow;
+        document.body.style.touchAction = originalTouchAction;
+      };
+    }
+  }, [isCartOpen, isCheckoutOpen, isPincodeModalOpen, quickViewProduct, recipeModalVlog, activePolicy]);
+
   const showToast = (title: string, subtitle?: string, type: 'success' | 'info' | 'warning' = 'success') => {
     const id = `${Date.now()}-${Math.random().toString(36).substring(2, 6)}`;
     const newToast: Toast = { id, title, subtitle, type };

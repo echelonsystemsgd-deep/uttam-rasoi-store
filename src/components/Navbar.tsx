@@ -37,6 +37,21 @@ export const Navbar: React.FC = () => {
       ).slice(0, 5)
     : [];
 
+  // Lock background scroll when mobile navigation menu is active
+  useEffect(() => {
+    if (isMobileMenuOpen) {
+      const originalOverflow = document.body.style.overflow;
+      const originalTouchAction = document.body.style.touchAction;
+      document.body.style.overflow = 'hidden';
+      document.body.style.touchAction = 'none';
+
+      return () => {
+        document.body.style.overflow = originalOverflow;
+        document.body.style.touchAction = originalTouchAction;
+      };
+    }
+  }, [isMobileMenuOpen]);
+
   // Close search on click outside
   useEffect(() => {
     const handleClickOutside = (e: MouseEvent) => {
@@ -247,7 +262,7 @@ export const Navbar: React.FC = () => {
 
       {/* Mobile Drawer Menu */}
       {isMobileMenuOpen && (
-        <div className="lg:hidden bg-cream-50 border-b border-cream-200 px-4 pt-3 pb-6 space-y-4 animate-slideDown shadow-xl">
+        <div className="lg:hidden bg-cream-50 border-b border-cream-200 px-4 pt-3 pb-8 space-y-4 animate-slideDown shadow-xl max-h-[calc(100vh-5rem)] overflow-y-auto">
           {/* Mobile Search Input */}
           <div className="relative">
             <input
