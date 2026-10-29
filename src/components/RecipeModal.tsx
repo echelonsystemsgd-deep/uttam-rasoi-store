@@ -1,6 +1,6 @@
 'use client';
 
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { useStore } from '../context/StoreContext';
 import { PRODUCTS, FALLBACK_IMAGE } from '../data/products';
 import { X, Youtube, Clock, ChefHat, Users, ShoppingBag, Sparkles, Play, Video, BookOpen, Check, ExternalLink } from 'lucide-react';
@@ -9,6 +9,16 @@ export const RecipeModal: React.FC = () => {
   const { recipeModalVlog, setRecipeModalVlog, addToCart, setIsCartOpen } = useStore();
   const [isPlayingVideo, setIsPlayingVideo] = useState(true);
   const [activeTab, setActiveTab] = useState<'video' | 'steps'>('video');
+
+  useEffect(() => {
+    const handleKeyDown = (e: KeyboardEvent) => {
+      if (e.key === 'Escape') {
+        setRecipeModalVlog(null);
+      }
+    };
+    window.addEventListener('keydown', handleKeyDown);
+    return () => window.removeEventListener('keydown', handleKeyDown);
+  }, [setRecipeModalVlog]);
 
   if (!recipeModalVlog) return null;
 

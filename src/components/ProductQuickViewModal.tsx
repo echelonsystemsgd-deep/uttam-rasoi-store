@@ -1,6 +1,6 @@
 'use client';
 
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { useStore } from '../context/StoreContext';
 import { FALLBACK_IMAGE } from '../data/products';
 import {
@@ -32,6 +32,16 @@ export const ProductQuickViewModal: React.FC = () => {
   const [activeVariantIdx, setActiveVariantIdx] = useState(0);
   const [activeImageIdx, setActiveImageIdx] = useState(0);
   const [quantity, setQuantity] = useState(1);
+
+  useEffect(() => {
+    const handleKeyDown = (e: KeyboardEvent) => {
+      if (e.key === 'Escape') {
+        setQuickViewProduct(null);
+      }
+    };
+    window.addEventListener('keydown', handleKeyDown);
+    return () => window.removeEventListener('keydown', handleKeyDown);
+  }, [setQuickViewProduct]);
 
   if (!quickViewProduct) return null;
 

@@ -124,8 +124,8 @@ export const PRODUCTS: Product[] = [
     isBestseller: true,
     isVeg: true,
     images: [
-      'https://images.unsplash.com/photo-1585518419759-7fe2e0fbf8a6?auto=format&fit=crop&w=800&q=80',
-      'https://images.unsplash.com/photo-1596797038530-2c107229654b?auto=format&fit=crop&w=800&q=80',
+      'https://images.unsplash.com/photo-1590794056226-79ef3a8147e1?auto=format&fit=crop&w=800&q=80',
+      'https://images.unsplash.com/photo-1584990347449-39941a319520?auto=format&fit=crop&w=800&q=80',
     ],
     variants: [
       { id: 'kad-25', weight: '2.5L (9.5-inch / 2.7kg)', price: 1499, originalPrice: 1999, inStock: true },
@@ -150,8 +150,8 @@ export const PRODUCTS: Product[] = [
     isBestseller: true,
     isVeg: true,
     images: [
-      'https://images.unsplash.com/photo-1584269600464-37b1b58a9fe7?auto=format&fit=crop&w=800&q=80',
-      'https://images.unsplash.com/photo-1590794056226-79ef3a8147e1?auto=format&fit=crop&w=800&q=80',
+      'https://images.unsplash.com/photo-1509358271058-acd22cc93898?auto=format&fit=crop&w=800&q=80',
+      'https://images.unsplash.com/photo-1596040033229-a9821ebd058d?auto=format&fit=crop&w=800&q=80',
     ],
     variants: [
       { id: 'jar-12', weight: 'Set of 12 (200ml each)', price: 899, originalPrice: 1299, inStock: true },
@@ -202,7 +202,7 @@ export const PRODUCTS: Product[] = [
     isBestseller: true,
     isVeg: true,
     images: [
-      'https://images.unsplash.com/photo-1544816155-12df9643f363?auto=format&fit=crop&w=800&q=80',
+      'https://images.unsplash.com/photo-1513519245088-0e12902e5a38?auto=format&fit=crop&w=800&q=80',
       'https://images.unsplash.com/photo-1596040033229-a9821ebd058d?auto=format&fit=crop&w=800&q=80',
     ],
     variants: [
@@ -228,7 +228,7 @@ export const PRODUCTS: Product[] = [
     reviewCount: 341,
     isVeg: true,
     images: [
-      'https://images.unsplash.com/photo-1615485290382-441e4d049cb5?auto=format&fit=crop&w=800&q=80',
+      'https://images.unsplash.com/photo-1615485500704-8e990f9900f7?auto=format&fit=crop&w=800&q=80',
       'https://images.unsplash.com/photo-1596040033229-a9821ebd058d?auto=format&fit=crop&w=800&q=80',
     ],
     variants: [
@@ -253,8 +253,8 @@ export const PRODUCTS: Product[] = [
     reviewCount: 142,
     isVeg: true,
     images: [
-      'https://images.unsplash.com/photo-1547592180-85f173990554?auto=format&fit=crop&w=800&q=80',
       'https://images.unsplash.com/photo-1589301760014-d929f3979dbc?auto=format&fit=crop&w=800&q=80',
+      'https://images.unsplash.com/photo-1590794056226-79ef3a8147e1?auto=format&fit=crop&w=800&q=80',
     ],
     variants: [
       { id: 'tad-brass', weight: 'Single (12cm Pan with Handle)', price: 749, originalPrice: 999, inStock: true },

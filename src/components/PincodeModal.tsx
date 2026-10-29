@@ -4,6 +4,8 @@ import React, { useState, useEffect } from 'react';
 import { useStore } from '../context/StoreContext';
 import { PINCODES_DATA } from '../data/products';
 import { X, MapPin, CheckCircle2, Truck, AlertCircle, ShieldCheck, ArrowRight } from 'lucide-react';
+import { Button } from './ui/button';
+import { Input } from './ui/input';
 
 export const PincodeModal: React.FC = () => {
   const { isPincodeModalOpen, setIsPincodeModalOpen, pincode, pincodeInfo, updatePincode } = useStore();
@@ -52,29 +54,29 @@ export const PincodeModal: React.FC = () => {
       role="dialog"
       aria-modal="true"
       aria-labelledby="pincode-modal-title"
-      className="fixed inset-0 z-50 overflow-y-auto bg-charcoal-950/70 backdrop-blur-sm flex items-center justify-center p-4 animate-fadeIn"
+      className="fixed inset-0 z-50 overflow-y-auto bg-foreground/70 backdrop-blur-sm flex items-center justify-center p-4 animate-fadeIn"
       onClick={(e) => {
         if (e.target === e.currentTarget) setIsPincodeModalOpen(false);
       }}
     >
-      <div className="bg-white rounded-3xl shadow-2xl max-w-md w-full p-6 border border-cream-200 space-y-5">
+      <div className="bg-card rounded-3xl shadow-soft max-w-md w-full p-6 border border-border space-y-5">
         
         {/* Header */}
-        <div className="flex items-center justify-between border-b border-cream-200 pb-3">
+        <div className="flex items-center justify-between border-b border-border pb-3">
           <div className="flex items-center gap-2.5">
-            <div className="w-9 h-9 rounded-xl bg-terracotta-100 text-terracotta-600 flex items-center justify-center flex-shrink-0">
+            <div className="w-9 h-9 rounded-xl bg-primary/10 text-primary flex items-center justify-center flex-shrink-0">
               <MapPin className="w-5 h-5" />
             </div>
             <div>
-              <h3 id="pincode-modal-title" className="font-serif font-bold text-lg text-charcoal-900 leading-tight">
+              <h3 id="pincode-modal-title" className="font-serif font-bold text-lg text-foreground leading-tight">
                 Check Delivery Speed
               </h3>
-              <p className="text-[11px] text-charcoal-500">Pan-India Express Dispatch from Delhi Hub</p>
+              <p className="text-[11px] text-muted-foreground">Pan-India Express Dispatch from Delhi Hub</p>
             </div>
           </div>
           <button
             onClick={() => setIsPincodeModalOpen(false)}
-            className="p-1.5 rounded-xl text-charcoal-400 hover:text-charcoal-900 hover:bg-cream-100 transition-colors"
+            className="p-1.5 rounded-xl text-muted-foreground hover:text-foreground hover:bg-secondary transition-colors"
             aria-label="Close PIN code dialog"
           >
             <X className="w-5 h-5" />
@@ -83,11 +85,11 @@ export const PincodeModal: React.FC = () => {
 
         {/* Input Form */}
         <form onSubmit={handleSubmit} className="space-y-2">
-          <label htmlFor="pincode-input" className="text-xs font-semibold text-charcoal-700 block">
+          <label htmlFor="pincode-input" className="text-xs font-semibold text-foreground block">
             Enter your 6-digit postal PIN code:
           </label>
           <div className="flex gap-2">
-            <input
+            <Input
               id="pincode-input"
               type="text"
               maxLength={6}
@@ -98,14 +100,14 @@ export const PincodeModal: React.FC = () => {
                 setError(null);
               }}
               placeholder="e.g. 110001"
-              className="flex-1 bg-cream-50 border border-cream-300 rounded-xl px-4 py-2.5 text-sm font-mono font-bold text-charcoal-900 focus:outline-none focus:ring-2 focus:ring-terracotta-500/30 tracking-wider"
+              className="flex-1 font-mono font-bold tracking-wider"
             />
-            <button
+            <Button
               type="submit"
-              className="px-5 py-2.5 rounded-xl bg-terracotta-600 hover:bg-terracotta-700 text-white font-bold text-xs shadow-warm transition-all active:scale-95"
+              className="font-bold text-xs"
             >
               Verify Speed
-            </button>
+            </Button>
           </div>
 
           {error && (
@@ -118,31 +120,31 @@ export const PincodeModal: React.FC = () => {
 
         {/* Current Verified Status Card */}
         <div className={`p-4 rounded-2xl border transition-all ${
-          verifiedSuccess ? 'bg-emerald-50/60 border-emerald-200' : 'bg-cream-50 border-cream-200'
+          verifiedSuccess ? 'bg-forestSage-50 border-veg/20' : 'bg-secondary border-border'
         }`}>
           {verifiedSuccess && (
-            <div className="flex items-center gap-1.5 text-xs font-bold text-emerald-800 pb-2 mb-2 border-b border-emerald-200/80">
-              <ShieldCheck className="w-4 h-4 text-emerald-600" />
+            <div className="flex items-center gap-1.5 text-xs font-bold text-veg pb-2 mb-2 border-b border-veg/20">
+              <ShieldCheck className="w-4 h-4 text-veg" />
               <span>Verified Serviceable Zone</span>
             </div>
           )}
 
           <div className="space-y-2 text-xs">
             <div className="flex items-center justify-between">
-              <span className="text-charcoal-500 font-medium">Delivering to:</span>
-              <span className="font-bold text-charcoal-900 text-right">{pincodeInfo.city} ({pincodeInfo.pincode})</span>
+              <span className="text-muted-foreground font-medium">Delivering to:</span>
+              <span className="font-bold text-foreground text-right">{pincodeInfo.city} ({pincodeInfo.pincode})</span>
             </div>
             <div className="flex items-center justify-between">
-              <span className="text-charcoal-500 font-medium">Estimated Delivery:</span>
-              <span className="font-bold text-emerald-700 flex items-center gap-1">
+              <span className="text-muted-foreground font-medium">Estimated Delivery:</span>
+              <span className="font-bold text-veg flex items-center gap-1">
                 <Truck className="w-3.5 h-3.5" />
                 <span>{pincodeInfo.deliveryDays}</span>
               </span>
             </div>
             <div className="flex items-center justify-between">
-              <span className="text-charcoal-500 font-medium">Cash On Delivery:</span>
-              <span className="font-bold text-forestSage-700 flex items-center gap-1">
-                <CheckCircle2 className="w-3.5 h-3.5 text-emerald-600" />
+              <span className="text-muted-foreground font-medium">Cash On Delivery:</span>
+              <span className="font-bold text-veg flex items-center gap-1">
+                <CheckCircle2 className="w-3.5 h-3.5 text-veg" />
                 <span>Available Pan-India</span>
               </span>
             </div>
@@ -151,7 +153,7 @@ export const PincodeModal: React.FC = () => {
 
         {/* Popular Cities Quick Select */}
         <div>
-          <span className="text-[11px] font-bold uppercase tracking-wider text-charcoal-500 block mb-2">
+          <span className="text-[11px] font-bold uppercase tracking-wider text-muted-foreground block mb-2">
             Popular Quick Select:
           </span>
           <div className="flex flex-wrap gap-1.5">
@@ -162,8 +164,8 @@ export const PincodeModal: React.FC = () => {
                 onClick={() => handleSelectQuickPin(pin)}
                 className={`text-[11px] px-2.5 py-1 rounded-lg border font-medium transition-all ${
                   pincode === pin
-                    ? 'bg-terracotta-600 text-white border-terracotta-600 shadow-xs'
-                    : 'bg-white text-charcoal-700 border-cream-300 hover:border-terracotta-300'
+                    ? 'bg-primary text-primary-foreground border-primary shadow-xs'
+                    : 'bg-card text-foreground border-border hover:border-primary/40'
                 }`}
               >
                 {data.city.split(' ')[0]} ({pin})
@@ -174,14 +176,15 @@ export const PincodeModal: React.FC = () => {
 
         {/* Primary Confirmation Action Button */}
         <div className="pt-2">
-          <button
+          <Button
             type="button"
+            variant="veg"
             onClick={handleConfirm}
-            className="w-full py-3 rounded-xl bg-forestSage-700 hover:bg-forestSage-800 text-white font-bold text-xs uppercase tracking-wider flex items-center justify-center gap-2 shadow-warm active:scale-98 transition-all"
+            className="w-full uppercase tracking-wider font-bold text-xs gap-2"
           >
             <span>Confirm Delivery to {pincodeInfo.city.split(' ')[0]}</span>
             <ArrowRight className="w-4 h-4" />
-          </button>
+          </Button>
         </div>
 
       </div>

@@ -1,6 +1,6 @@
 'use client';
 
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { useStore } from '../context/StoreContext';
 import { PINCODES_DATA } from '../data/products';
 import { SITE_CONFIG, getWhatsAppLink } from '../config/site';
@@ -33,6 +33,16 @@ export const CheckoutModal: React.FC = () => {
     latestOrder,
     setLatestOrder,
   } = useStore();
+
+  useEffect(() => {
+    const handleKeyDown = (e: KeyboardEvent) => {
+      if (e.key === 'Escape' && isCheckoutOpen) {
+        setIsCheckoutOpen(false);
+      }
+    };
+    window.addEventListener('keydown', handleKeyDown);
+    return () => window.removeEventListener('keydown', handleKeyDown);
+  }, [isCheckoutOpen, setIsCheckoutOpen]);
 
   // Form states
   const [name, setName] = useState('');

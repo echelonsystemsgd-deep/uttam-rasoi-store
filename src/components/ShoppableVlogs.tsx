@@ -4,27 +4,29 @@ import React from 'react';
 import { RECIPE_VLOGS } from '../data/vlogs';
 import { PRODUCTS, FALLBACK_IMAGE } from '../data/products';
 import { useStore } from '../context/StoreContext';
-import { Youtube, Play, Clock, Eye, ShoppingBag, Sparkles, ChefHat } from 'lucide-react';
+import { Youtube, Play, Clock, ShoppingBag, Sparkles, ChefHat } from 'lucide-react';
+import { Badge } from './ui/badge';
+import { Button } from './ui/button';
 
 export const ShoppableVlogs: React.FC = () => {
   const { setRecipeModalVlog, addToCart, setIsCartOpen } = useStore();
 
   return (
-    <section id="shoppable-vlogs" className="py-16 sm:py-20 bg-cream-100/70 border-t border-cream-200/80 scroll-mt-20">
+    <section id="shoppable-vlogs" className="py-16 sm:py-20 bg-secondary/40 border-t border-border scroll-mt-20">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         
         {/* Section Header */}
         <div className="flex flex-col md:flex-row md:items-end justify-between mb-10 gap-4">
           <div className="space-y-2">
-            <div className="inline-flex items-center gap-2 bg-red-100 text-red-800 text-xs font-bold px-3.5 py-1 rounded-full uppercase tracking-wider">
+            <Badge variant="bestseller" className="gap-1.5 uppercase tracking-wider px-3.5 py-1">
               <Youtube className="w-4 h-4 text-red-600 fill-current" />
               <span>As Seen on Neelam's YouTube Vlog</span>
-            </div>
-            <h2 className="text-3xl sm:text-4xl md:text-5xl font-serif font-black text-charcoal-900 tracking-tight">
+            </Badge>
+            <h2 className="text-3xl sm:text-4xl md:text-5xl font-serif font-black text-foreground tracking-tight">
               Cook What You Watch,{' '}
-              <span className="italic font-normal text-terracotta-600">Shop The Recipes</span>
+              <span className="italic font-normal text-primary">Shop The Recipes</span>
             </h2>
-            <p className="text-sm sm:text-base text-charcoal-600 font-sans max-w-2xl">
+            <p className="text-sm sm:text-base text-muted-foreground font-sans max-w-2xl">
               Don’t guess the ingredients! Directly shop the exact stone-ground spices, pre-seasoned kadhai, and airtight glass jars Neelam uses in her real kitchen videos.
             </p>
           </div>
@@ -51,7 +53,7 @@ export const ShoppableVlogs: React.FC = () => {
             return (
               <div
                 key={vlog.id}
-                className="bg-white rounded-3xl border border-cream-200 shadow-soft hover:shadow-xl transition-all duration-300 flex flex-col overflow-hidden group"
+                className="bg-card rounded-3xl border border-border shadow-subtle hover:shadow-soft transition-all duration-300 flex flex-col overflow-hidden group"
               >
                 {/* Video Preview Thumbnail with Play Button */}
                 <div
@@ -63,7 +65,7 @@ export const ShoppableVlogs: React.FC = () => {
                     alt={vlog.title}
                     className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500 opacity-90 group-hover:opacity-100"
                   />
-                  <div className="absolute inset-0 bg-gradient-to-t from-charcoal-950/80 via-transparent to-transparent" />
+                  <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent" />
                   
                   {/* Play Button Overlay */}
                   <div className="absolute inset-0 flex items-center justify-center">
@@ -73,8 +75,8 @@ export const ShoppableVlogs: React.FC = () => {
                   </div>
 
                   {/* Video duration & view badge */}
-                  <div className="absolute top-3 right-3 bg-charcoal-900/80 backdrop-blur-sm text-white text-[11px] font-mono px-2 py-0.5 rounded-md flex items-center gap-1">
-                    <Clock className="w-3 h-3 text-amberSpice-400" />
+                  <div className="absolute top-3 right-3 bg-black/80 backdrop-blur-sm text-white text-[11px] font-mono px-2 py-0.5 rounded-md flex items-center gap-1">
+                    <Clock className="w-3 h-3 text-amber-300" />
                     <span>{vlog.videoDuration}</span>
                   </div>
 
@@ -82,7 +84,7 @@ export const ShoppableVlogs: React.FC = () => {
                     <span className="text-[11px] font-semibold text-amber-300 uppercase tracking-wider block">
                       {vlog.recipeName}
                     </span>
-                    <span className="text-xs text-cream-200 font-medium">
+                    <span className="text-xs text-cream-100 font-medium">
                       {vlog.views} • Recipe Walkthrough
                     </span>
                   </div>
@@ -93,18 +95,18 @@ export const ShoppableVlogs: React.FC = () => {
                   <div>
                     <h3
                       onClick={() => setRecipeModalVlog(vlog)}
-                      className="font-serif font-bold text-base sm:text-lg text-charcoal-900 group-hover:text-terracotta-600 transition-colors line-clamp-2 cursor-pointer"
+                      className="font-serif font-bold text-base sm:text-lg text-foreground group-hover:text-primary transition-colors line-clamp-2 cursor-pointer"
                     >
                       {vlog.title}
                     </h3>
-                    <p className="text-xs text-charcoal-600 line-clamp-2 mt-1.5 leading-relaxed">
+                    <p className="text-xs text-muted-foreground line-clamp-2 mt-1.5 leading-relaxed">
                       {vlog.description}
                     </p>
                   </div>
 
                   {/* Recipe Stats Pills */}
-                  <div className="flex items-center gap-2 text-[11px] text-charcoal-600 bg-cream-100/70 p-2 rounded-xl">
-                    <ChefHat className="w-3.5 h-3.5 text-terracotta-600 flex-shrink-0" />
+                  <div className="flex items-center gap-2 text-[11px] text-muted-foreground bg-secondary/80 p-2 rounded-xl">
+                    <ChefHat className="w-3.5 h-3.5 text-primary flex-shrink-0" />
                     <span>Prep: <strong>{vlog.prepTime}</strong></span>
                     <span>•</span>
                     <span>Cook: <strong>{vlog.cookTime}</strong></span>
@@ -113,15 +115,15 @@ export const ShoppableVlogs: React.FC = () => {
                   </div>
 
                   {/* Linked Products Micro-Shelf */}
-                  <div className="border-t border-cream-200/80 pt-3 space-y-2">
-                    <div className="flex items-center justify-between text-[11px] font-bold text-charcoal-700 gap-2 pb-0.5">
-                      <span className="flex items-center gap-1.5 uppercase tracking-wider text-charcoal-800">
-                        <Sparkles className="w-3.5 h-3.5 text-amberSpice-500 flex-shrink-0" />
+                  <div className="border-t border-border pt-3 space-y-2">
+                    <div className="flex items-center justify-between text-[11px] font-bold text-foreground gap-2 pb-0.5">
+                      <span className="flex items-center gap-1.5 uppercase tracking-wider">
+                        <Sparkles className="w-3.5 h-3.5 text-accent flex-shrink-0" />
                         <span>Recipe Kit:</span>
                       </span>
                       <button
                         onClick={() => setRecipeModalVlog(vlog)}
-                        className="text-terracotta-600 hover:text-terracotta-700 hover:underline font-semibold text-[11px] flex-shrink-0"
+                        className="text-primary hover:underline font-semibold text-[11px] flex-shrink-0"
                       >
                         Recipe Steps →
                       </button>
@@ -134,7 +136,7 @@ export const ShoppableVlogs: React.FC = () => {
                         return (
                           <div
                             key={p.id}
-                            className="flex items-center justify-between p-2 rounded-xl bg-cream-50 hover:bg-cream-100/80 transition-colors border border-cream-200/60"
+                            className="flex items-center justify-between p-2 rounded-xl bg-secondary/50 hover:bg-secondary transition-colors border border-border"
                           >
                             <div className="flex items-center gap-2.5 min-w-0">
                               <img
@@ -143,26 +145,27 @@ export const ShoppableVlogs: React.FC = () => {
                                 onError={(e) => {
                                   (e.target as HTMLImageElement).src = FALLBACK_IMAGE;
                                 }}
-                                className="w-9 h-9 rounded-lg object-cover flex-shrink-0 bg-cream-200"
+                                className="w-9 h-9 rounded-lg object-cover flex-shrink-0 bg-muted"
                               />
                               <div className="truncate">
-                                <p className="text-xs font-semibold text-charcoal-900 truncate">{p.name}</p>
-                                <p className="text-[10px] text-charcoal-500">{v.weight}</p>
+                                <p className="text-xs font-semibold text-foreground truncate">{p.name}</p>
+                                <p className="text-[10px] text-muted-foreground">{v.weight}</p>
                               </div>
                             </div>
 
                             <div className="flex items-center gap-2 flex-shrink-0">
-                              <span className="text-xs font-bold text-charcoal-900">₹{v.price}</span>
-                              <button
+                              <span className="text-xs font-bold text-foreground">₹{v.price}</span>
+                              <Button
+                                size="icon-sm"
                                 onClick={() => {
                                   addToCart(p, 0, 1);
                                   setIsCartOpen(true);
                                 }}
-                                className="p-1.5 rounded-lg bg-terracotta-600 hover:bg-terracotta-700 text-white shadow-xs"
+                                className="rounded-lg h-7 w-7"
                                 title="Add to cart"
                               >
                                 <ShoppingBag className="w-3 h-3" />
-                              </button>
+                              </Button>
                             </div>
                           </div>
                         );

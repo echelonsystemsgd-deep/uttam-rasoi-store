@@ -8,12 +8,48 @@ module.exports = {
   theme: {
     extend: {
       colors: {
+        background: "hsl(var(--background))",
+        foreground: "hsl(var(--foreground))",
+        card: {
+          DEFAULT: "hsl(var(--card))",
+          foreground: "hsl(var(--card-foreground))",
+        },
+        popover: {
+          DEFAULT: "hsl(var(--popover))",
+          foreground: "hsl(var(--popover-foreground))",
+        },
+        primary: {
+          DEFAULT: "hsl(var(--primary))",
+          hover: "hsl(var(--primary-hover))",
+          foreground: "hsl(var(--primary-foreground))",
+        },
+        secondary: {
+          DEFAULT: "hsl(var(--secondary))",
+          foreground: "hsl(var(--secondary-foreground))",
+        },
+        muted: {
+          DEFAULT: "hsl(var(--muted))",
+          foreground: "hsl(var(--muted-foreground))",
+        },
+        accent: {
+          DEFAULT: "hsl(var(--accent))",
+          foreground: "hsl(var(--accent-foreground))",
+        },
+        veg: {
+          DEFAULT: "hsl(var(--veg))",
+          foreground: "hsl(var(--veg-foreground))",
+        },
+        border: "hsl(var(--border))",
+        input: "hsl(var(--input))",
+        ring: "hsl(var(--ring))",
+        
+        // Semantic artisan aliases to ensure backwards compatibility with any existing classnames
         cream: {
-          50: '#FDFBF7',
-          100: '#FAF6EF',
-          200: '#F5EFE6',
-          300: '#EAE1D2',
-          400: '#DCCFBC',
+          50: '#FAF8F5',
+          100: '#F6F1EA',
+          200: '#EFE7DC',
+          300: '#E2D5C3',
+          400: '#D5C3AB',
         },
         terracotta: {
           50: '#FDF6F3',
@@ -37,25 +73,32 @@ module.exports = {
           50: '#F2F6F4',
           100: '#E1ECE6',
           500: '#3D6857',
-          700: '#2C4A3E',
-          800: '#223B31',
-          900: '#172720',
+          700: '#22583F',
+          800: '#1B4733',
+          900: '#143526',
         },
         charcoal: {
-          700: '#4A4A4A',
-          800: '#2E2E2E',
-          900: '#1F1F1F',
-          950: '#141414',
+          600: '#736B63',
+          700: '#4A4641',
+          800: '#2D2A26',
+          900: '#1C1917',
+          950: '#121110',
         }
+      },
+      borderRadius: {
+        lg: "var(--radius)",
+        md: "calc(var(--radius) - 2px)",
+        sm: "calc(var(--radius) - 4px)",
       },
       fontFamily: {
         serif: ['var(--font-playfair)', 'Playfair Display', 'Georgia', 'serif'],
         sans: ['var(--font-jakarta)', 'Plus Jakarta Sans', 'Inter', 'system-ui', 'sans-serif'],
       },
       boxShadow: {
-        'soft': '0 4px 20px -2px rgba(200, 90, 50, 0.08), 0 2px 6px -1px rgba(0, 0, 0, 0.04)',
-        'warm': '0 12px 30px -6px rgba(200, 90, 50, 0.16)',
-        'drawer': '-10px 0 40px -5px rgba(0, 0, 0, 0.22)',
+        'subtle': '0 1px 2px 0 rgba(0, 0, 0, 0.04)',
+        'soft': '0 4px 16px -2px rgba(28, 25, 23, 0.06), 0 2px 4px -1px rgba(28, 25, 23, 0.03)',
+        'warm': '0 10px 25px -4px rgba(200, 90, 50, 0.12)',
+        'drawer': '-10px 0 40px -5px rgba(28, 25, 23, 0.25)',
       }
     },
   },
